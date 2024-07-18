@@ -55,6 +55,7 @@ a:hover{
 }
 /* #endregion Element overrides*/
 
+/* #region Template Styles */
 body{
     color: var(--ss-dark-color);
     background: #ECE9E6;  /* fallback for old browsers */
@@ -96,4 +97,4 @@ footer i{
 footer i:hover{
     color: var(--cf-theme-200);
 }
-
+/* #endregion template styles */
