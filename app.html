@@ -122,6 +122,22 @@
                         Add Data
                     </button>
                 </div>
+                <div>
+                    <table class="table table-striped" id="eventData">
+                        <thead>
+                            <tr>
+                                <th>Event Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Attendance</th>
+                                <th>Event Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventBody">
+                            <!--Data Goes Here-->
+                        </tbody>
+                    </table>
+                </div>
 
                 <!-- Modal Header -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -141,8 +157,8 @@
                                         placeholder="Event" required />
 
                                     <label for="newEventCity" class="form-label">City</label>
-                                    <input type="text" name="newEventCity" id="newEventCity" class="form-control" placeholder="City"
-                                        required />
+                                    <input type="text" name="newEventCity" id="newEventCity" class="form-control"
+                                        placeholder="City" required />
 
                                     <label for="newEventState" class="form-label">State</label>
                                     <select id="newEventState" name="newEventState" class="form-select">
@@ -201,8 +217,8 @@
                                     </select>
 
                                     <label for="newEventAttendance" class="form-label">Attendance</label>
-                                    <input type="number" name="newEventAttendance" id="newEventAttendance" class="form-control"
-                                        placeholder="Attendance" required />
+                                    <input type="number" name="newEventAttendance" id="newEventAttendance"
+                                        class="form-control" placeholder="Attendance" required />
 
                                     <label for="newEventDate" class="form-label">Event Date</label>
                                     <input type="date" name="newEventDate" id="newEventDate" class="form-control"
@@ -217,6 +233,17 @@
                         </div>
                     </div>
                 </div>
+
+                <!--Templates-->
+                <template id="eventData-template">
+                    <tr>
+                        <td data-event></td>
+                        <td data-city></td>
+                        <td data-state></td>
+                        <td data-attendance></td>
+                        <td data-date></td>
+                    </tr>
+                </template>
             </div>
         </div>
 

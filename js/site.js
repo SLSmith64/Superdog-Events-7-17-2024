@@ -96,6 +96,8 @@ function buildDropDown(){
     }
 
     displayStats(currentEvents);
+    displayData(currentEvents);
+    
 
 }
 
@@ -153,6 +155,7 @@ function displayStats(events){
 }
 
 //get events for a given city
+//Get events from the dropdown
 function getEvents(element) {
     let selectedCity = element.getAttribute("data-city");
     let filteredEvents = [];
@@ -173,6 +176,7 @@ function getEvents(element) {
     }
 
     displayStats(filteredEvents);
+    displayData(filteredEvents);
 
 }
 
@@ -200,4 +204,29 @@ function saveEventData(){
   localStorage.setItem("eventData", JSON.stringify(currentEvents));
 
   buildDropDown();
+}
+
+//Display a grid of event data
+function displayData(events){
+  let template = document.getElementById("eventData-template");
+  let eventBody = document.getElementById("eventBody");
+  //Clear the table data first.
+  eventBody.innerHTML = "";
+
+  //Loop over the events and display them.
+  for(let index=0; index < events.length; index ++){
+    let curEvent = events[index];
+
+    //Get a document fragment from the template.
+    let eventRow = document.importNode(template.content, true);
+
+    //Select the td based on an attribute.
+    eventRow.querySelector("[data-event]").textContent = curEvent.event;
+    eventRow.querySelector("[data-city]").textContent = curEvent.city;
+    eventRow.querySelector("[data-state]").textContent = curEvent.state;
+    eventRow.querySelector("[data-attendance]").textContent = curEvent.attendance;
+    eventRow.querySelector("[data-date]").textContent = new Date(curEvent.date).toLocaleDateString();
+
+    eventBody.appendChild(eventRow);
+  }
 }
